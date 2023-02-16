@@ -30,13 +30,15 @@ export default function OperatorAccordion({
       </AccordionTitle>
       <AccordionContent isActive={selectedOperator === id} clients={clients}>
         {clients ? (
-          clients.map((client, index) => (
-            <div className="client" key={index}>
-              <p>{client.name}</p>
-              <small>{client.email}</small>
-              <small>{client.birthDate}</small>
-            </div>
-          ))
+          clients
+            .sort((a, b) => (a.created_at < b.created_at ? -1 : 1))
+            .map((client, index) => (
+              <div className="client" key={index}>
+                <p>{client.name}</p>
+                <small>{client.email}</small>
+                <small>{client.birthDate}</small>
+              </div>
+            ))
         ) : (
           <p className="alert">No client found</p>
         )}
