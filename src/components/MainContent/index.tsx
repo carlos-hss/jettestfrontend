@@ -41,14 +41,16 @@ export default function MainContent() {
         </SecondaryButton>
       </Header>
       <OperatorList>
-        {operators.map((operator: IOperators, index) => (
-          <OperatorAccordion
-            id={operator.id}
-            name={operator.name}
-            clients={operator.clients}
-            key={index}
-          />
-        ))}
+        <>
+          {operators.map((operator: IOperators, index) => (
+            <OperatorAccordion
+              id={operator.id}
+              name={operator.name}
+              clients={operator.clients}
+              key={index}
+            />
+          ))}
+        </>
       </OperatorList>
     </Container>
   );
